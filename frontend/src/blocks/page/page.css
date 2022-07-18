@@ -1,0 +1,18 @@
+.page {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  background-color: black;
+  padding: 0 calc((100% - 880px)/2) 0;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 899px) {
+  .page {
+    padding: 0;
+  }
+}

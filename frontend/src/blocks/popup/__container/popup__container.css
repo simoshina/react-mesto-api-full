@@ -1,0 +1,10 @@
+.popup__container {
+  position: relative;
+  cursor: default;
+}
+
+@media screen and (max-width: 470px) {
+  .popup__container {
+    width: 90%;
+  }
+}
