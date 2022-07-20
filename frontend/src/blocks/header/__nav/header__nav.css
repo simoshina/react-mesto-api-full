@@ -3,3 +3,9 @@
   gap: 24px;
   align-items: flex-end;
 }
+
+@media screen and (max-width: 899px) {
+  .header__logo {
+    margin-right: 27px;
+  }
+}

@@ -1,6 +1,7 @@
 # Проект Mesto фронтенд + бэкенд
 
 - [Ссылка на сайт](https://simoshina.students.nomoredomains.xyz/)
+- [API](https://api.simoshina.students.nomoredomains.xyz/)
 - [Публичный IP-адрес сервера](http://51.250.76.64)
 
 ## Сайт представляет собой профиль пользователя с галереей из фотографий живописных мест России.
