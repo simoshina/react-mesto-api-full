@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const urlRegex = require('../constants/regex');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -12,8 +13,7 @@ const cardSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        // eslint-disable-next-line no-useless-escape
-        return /(http||https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/.test(v);
+        return urlRegex.test(v);
       },
     },
   },

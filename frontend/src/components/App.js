@@ -133,7 +133,11 @@ function App() {
         setIsInfoToolTipOpen(true);
         setIsSuccess(true);
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setIsInfoToolTipOpen(true);
+        setIsSuccess(false)
+      });
   }
 
   function tokenCheck() {

@@ -3,6 +3,7 @@ const { celebrate, Joi } = require('celebrate');
 const {
   findUsers, findUser, updateUserInfo, updateAvatar, getUser,
 } = require('../controllers/users');
+const urlRegex = require('../constants/regex');
 
 router.get('/me', getUser);
 router.get('/', findUsers);
@@ -19,8 +20,7 @@ router.patch('/me', celebrate({
 }), updateUserInfo);
 router.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
-    // eslint-disable-next-line no-useless-escape
-    avatar: Joi.string().pattern(/(http||https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/),
+    avatar: Joi.string().pattern(urlRegex),
   }),
 }), updateAvatar);
 

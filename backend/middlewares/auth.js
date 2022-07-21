@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const UnauthorizedError = require('../errors/UnauthorizedError');
@@ -10,9 +9,9 @@ module.exports = (req, res, next) => {
 
   if (!token) return next(new UnauthorizedError('Необходима авторизация.'));
 
-  jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', (err, payload) => {
+  return jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', (err, payload) => {
     if (err) return next(new UnauthorizedError('Необходима авторизация.'));
     req.user = payload;
-    next();
+    return next();
   });
 };

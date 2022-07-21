@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const BadRequestError = require('../errors/BadRequestError');
@@ -23,7 +22,7 @@ module.exports.findUser = (req, res, next) => {
       if (err.name === 'CastError') {
         return next(new BadRequestError('Передан некорректный id.'));
       }
-      next(err);
+      return next(err);
     });
 };
 
@@ -47,7 +46,7 @@ module.exports.createUser = (req, res, next) => {
       } if (err.name === 'ValidationError') {
         return next(new BadRequestError('Переданы некорректные данные при создании профиля.'));
       }
-      next(err);
+      return next(err);
     });
 };
 
@@ -74,7 +73,7 @@ module.exports.getUser = (req, res, next) => {
       if (err.name === 'CastError') {
         return next(new BadRequestError('Передан некорректный id.'));
       }
-      next(err);
+      return next(err);
     });
 };
 
@@ -91,7 +90,7 @@ module.exports.updateUserInfo = (req, res, next) => {
       } if (err.name === 'CastError') {
         return next(new NotFoundError('Пользователь с указанным id не найден.'));
       }
-      next(err);
+      return next(err);
     });
 };
 
@@ -108,6 +107,6 @@ module.exports.updateAvatar = (req, res, next) => {
       } if (err.name === 'CastError') {
         return next(new NotFoundError('Пользователь с указанным id не найден.'));
       }
-      next(err);
+      return next(err);
     });
 };

@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 const BadRequestError = require('../errors/BadRequestError');
 const ForbiddenError = require('../errors/ForbiddenError');
 const NotFoundError = require('../errors/NotFoundError');
@@ -18,7 +17,7 @@ module.exports.createCard = (req, res, next) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequestError('Переданы некорректные данные при создании карточки.'));
       }
-      next(err);
+      return next(err);
     });
 };
 
@@ -36,7 +35,7 @@ module.exports.deleteCard = (req, res, next) => {
       if (err.name === 'CastError') {
         return next(new BadRequestError('Передан некорретный id карточки.'));
       }
-      next(err);
+      return next(err);
     });
 };
 
@@ -52,7 +51,7 @@ module.exports.likeCard = (req, res, next) => {
       if (err.name === 'CastError') {
         return next(new BadRequestError('Передан некорретный id карточки.'));
       }
-      next(err);
+      return next(err);
     });
 };
 
@@ -68,6 +67,6 @@ module.exports.dislikeCard = (req, res, next) => {
       if (err.name === 'CastError') {
         return next(new BadRequestError('Передан некорретный id карточки.'));
       }
-      next(err);
+      return next(err);
     });
 };
